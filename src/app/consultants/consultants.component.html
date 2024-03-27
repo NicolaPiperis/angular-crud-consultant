@@ -1,0 +1,32 @@
+<div *ngIf="isLoading" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+</div>
+
+
+<button [routerLink]="['/createConsultant']"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2 float-right">
+    Nuovo
+</button>
+  
+
+<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-gray-800 text-white">
+      <tr>
+        <th class="px-4 py-2">Nome</th>
+        <th class="px-4 py-2">Cognome</th>
+        <th class="px-4 py-2">Email</th>
+        <th class="px-4 py-2">Telefono</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700">
+      <tr *ngFor="let consultant of consultants">
+        <td class="border px-4 py-2">{{ consultant.name }}</td>
+        <td class="border px-4 py-2">{{ consultant.surname }}</td>
+        <td class="border px-4 py-2">{{ consultant.mail }}</td>
+        <td class="border px-4 py-2">{{ consultant.phone }}</td>
+      </tr>
+    </tbody>
+</table>
+  
