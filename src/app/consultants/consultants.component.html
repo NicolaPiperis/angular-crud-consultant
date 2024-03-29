@@ -1,7 +1,6 @@
-<div *ngIf="isLoading" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
-    <div class="spinner-container">
-        <div class="spinner"></div>
-    </div>
+<div *ngIf="isLoading"
+  class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
+  <mat-progress-spinner mode="indeterminate" strokeWidth="4" color="accent" />
 </div>
 
 
@@ -11,7 +10,7 @@
 </button>
   
 
-<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden ">
     <thead class="bg-gray-800 text-white">
       <tr>
         <th class="px-4 py-2">Nome</th>
@@ -29,4 +28,3 @@
       </tr>
     </tbody>
 </table>
-  

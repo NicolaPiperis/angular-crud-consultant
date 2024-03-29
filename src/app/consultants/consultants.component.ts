@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { CONSULTANT } from '../interface/consultant'
+import { Consultant } from '../interface/consultant'
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,7 +11,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     NgFor,
     NgIf, 
-    RouterModule
+    RouterModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './consultants.component.html',
   styleUrl: './consultants.component.css'
@@ -24,7 +26,7 @@ ngOnInit(): void {
   }, 1500);
 }
 
-  consultants: CONSULTANT[] =  [
+  consultants: Consultant[] =  [
     {
       name: 'Nicola',
       surname: 'Piperis',
