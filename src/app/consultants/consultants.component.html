@@ -5,26 +5,39 @@
 
 
 <button [routerLink]="['/createConsultant']"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2 float-right">
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 float-right">
     Nuovo
 </button>
   
 
-<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden ">
+<div class="mx-4">
+  <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
     <thead class="bg-gray-800 text-white">
       <tr>
-        <th class="px-4 py-2">Nome</th>
-        <th class="px-4 py-2">Cognome</th>
-        <th class="px-4 py-2">Email</th>
-        <th class="px-4 py-2">Telefono</th>
+        <th class="px-4 py-2 text-left">Nome</th>
+        <th class="px-4 py-2 text-left">Cognome</th>
+        <th class="px-4 py-2 text-left">Email</th>
+        <th class="px-4 py-2 text-left">Telefono</th>
+        <th class="px-2 py-2 text-center">Azioni</th>
       </tr>
     </thead>
-    <tbody class="text-gray-700">
-      <tr *ngFor="let consultant of consultants">
-        <td class="border px-4 py-2">{{ consultant.name }}</td>
-        <td class="border px-4 py-2">{{ consultant.surname }}</td>
-        <td class="border px-4 py-2">{{ consultant.mail }}</td>
-        <td class="border px-4 py-2">{{ consultant.phone }}</td>
+    <tbody *ngIf="consultants.length > 0"  class="text-gray-700">
+      <tr 
+      *ngFor="let consultant of consultants" 
+      class="border">
+        <td class="px-4 py-2">{{ consultant.name }}</td>
+        <td class="px-4 py-2">{{ consultant.surname }}</td>
+        <td class="px-4 py-2">{{ consultant.mail }}</td>
+        <td class="px-4 py-2">{{ consultant.phone }}</td>
+        <td class="px-2 py-2 flex justify-center space-x-4">
+          <button [routerLink]="['/updateConsultant', consultant._id]" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+        </td>
       </tr>
     </tbody>
-</table>
+  </table>
+</div>
+
+
+
+

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -19,7 +19,7 @@ import { ConsultantService } from '../consultant.service';
   styleUrl: './create-consultant.component.css'
 })
 export class CreateConsultantComponent {
-  isLoading: boolean = true;
+  isLoading: boolean = false;
   consultantService = inject(ConsultantService)
 
   applyForm = new FormGroup({
@@ -29,16 +29,12 @@ export class CreateConsultantComponent {
     phone: new FormControl('', Validators.required)
   });
 
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1500);
-  }
+  constructor(private router: Router) {}
   async createConsultant() {
 
     try {
       console.log('Prima della richiesta')
+      this.isLoading= true
       await new Promise(resolve => setTimeout(resolve, 3000))
       let response = await this.consultantService.createConsultant(
         {
@@ -50,20 +46,17 @@ export class CreateConsultantComponent {
       )
       console.log('Richiesta')
       response.subscribe((consultant) => {
+        console.log(consultant)
         if (!consultant._id) {
           throw Error('Id mancante!')
         }
-        // console.log('utente creato:', consultant._id)
-        // console.log('utente creato:', consultant)
+
       }
       )
     } catch {
-
     }
-
-
-
-
     this.applyForm.reset()
+    this.isLoading = false
+    this.router.navigate(['/'])
   }
 }

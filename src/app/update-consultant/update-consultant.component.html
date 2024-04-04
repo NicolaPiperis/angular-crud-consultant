@@ -1,0 +1,54 @@
+<div *ngIf="isLoading"
+  class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
+  <mat-progress-spinner mode="indeterminate" strokeWidth="4" color="accent" />
+</div>
+
+
+<button [routerLink]="['/']"
+  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-2">
+  Torna Indietro
+</button>
+
+
+<form novalidate [formGroup]="applyForm"
+  class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md p-4">
+  <h2 class="text-xl font-semibold text-gray-800 mb-2">Aggiorna i dati</h2>
+
+  <div class="mb-4">
+    <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
+    <input formControlName="name" type="text" id="name" name="name"
+      class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm sm:text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+  </div>
+
+  <div class="mb-4">
+    <label for="surname" class="block text-sm font-medium text-gray-700">Cognome</label>
+    <input formControlName="surname" type="text" id="surname" name="surname"
+      class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm sm:text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+  </div>
+
+  <div class="mb-4">
+    <label for="mail" class="block text-sm font-medium text-gray-700">Email</label>
+    <input formControlName="mail" type="mail" id="mail" name="mail" autocomplete="email"
+      class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm sm:text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+  </div>
+
+  <div class="mb-4">
+    <label for="phone" class="block text-sm font-medium text-gray-700">Telefono</label>
+    <input formControlName="phone" type="phone" id="phone" name="phone" autocomplete="tel"
+      class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm sm:text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+  </div>
+
+  <div class="flex justify-end">
+    <button [disabled]="!applyForm.valid" type="submit"
+      class="create-button">
+      Invia
+    </button>
+  </div>
+</form>
+
+<div *ngIf="!applyForm.valid"
+  class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mx-auto max-w-md mt-8" role="alert">
+  <p class="font-bold">Attenzione!</p>
+  <p>Devi inserire tutti i campi prima di proseguire.</p>
+</div>
+

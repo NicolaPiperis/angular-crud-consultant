@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ConsultantsComponent } from './consultants/consultants.component';
 import { CreateConsultantComponent } from './create-consultant/create-consultant.component';
+import { UpdateConsultantComponent } from './update-consultant/update-consultant.component';
 
 export const routes: Routes = [
     {
@@ -12,24 +13,10 @@ export const routes: Routes = [
         path: 'createConsultant',
         component: CreateConsultantComponent,
         title: 'Create'
+    },
+    {
+        path: 'updateConsultant/:_id',
+        component: UpdateConsultantComponent,
+        title: 'Update'
     }
 ];
-
-// import { Routes } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-// import { DetailsComponent } from './details/details.component';
-
-// const routeConfig: Routes = [
-//     {
-//       path: '',
-//       component: HomeComponent,
-//       title: 'Home page'
-//     },
-//     {
-//       path: 'details/:id',
-//       component: DetailsComponent,
-//       title: 'Home details'
-//     }
-//   ];
-  
-//   export default routeConfig;
