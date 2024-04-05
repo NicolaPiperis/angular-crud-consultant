@@ -70,7 +70,6 @@ export class UpdateConsultantComponent implements OnInit {
       )
       console.log('Richiesta')
       response.subscribe((updatedConsultant) => {
-        console.log(updatedConsultant._id)
         if (!updatedConsultant._id) {
           throw Error('Id mancante!')
         }

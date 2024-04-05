@@ -4,7 +4,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { Consultant } from '../interface/consultant'
 import { ConsultantService } from '../consultant.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-consultants',
@@ -22,6 +22,8 @@ export class ConsultantsComponent implements OnInit {
   consultantService = inject(ConsultantService)
   isLoading: boolean = false;
   consultants: Consultant[] = []
+  
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.getConsultants()
@@ -37,6 +39,7 @@ export class ConsultantsComponent implements OnInit {
       })
     } catch {}
     this.isLoading = false
+    console.log('get funziona')
   }
 
   async delateConsultant(
@@ -48,6 +51,7 @@ export class ConsultantsComponent implements OnInit {
       let response = await this.consultantService.delateConsultant(id)
       response.subscribe(() => {
         console.log('Delete successful')
+        this.getConsultants()
       })
     } catch {}
     this.isLoading = false

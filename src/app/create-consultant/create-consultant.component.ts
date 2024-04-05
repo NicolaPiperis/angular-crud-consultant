@@ -58,5 +58,6 @@ export class CreateConsultantComponent {
     this.applyForm.reset()
     this.isLoading = false
     this.router.navigate(['/'])
+    console.log('create funziona')
   }
 }

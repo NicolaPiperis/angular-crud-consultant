@@ -9,7 +9,7 @@ import { Consultant } from './interface/consultant';
   providedIn: 'root'
 })
 export class ConsultantService {
-  private apiUrl = 'https://crudcrud.com/api/1c3431ab67f64413bd8948afd1254f1b'
+  private apiUrl = 'https://crudcrud.com/api/53ea40c153d44b9c837bf55d429480b5'
   constructor(private http: HttpClient) { }
 
   createConsultant(
