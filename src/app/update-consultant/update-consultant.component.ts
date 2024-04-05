@@ -52,4 +52,35 @@ export class UpdateConsultantComponent implements OnInit {
       this.isLoading = false
     } catch { }
   }
+  async updateData() {
+    try {
+      console.log('Prima della richiesta')
+      this.isLoading= true
+      await new Promise(resolve => setTimeout(resolve, 3000))
+      const consultantData = {
+          name: this.applyForm.value.name!,
+          mail: this.applyForm.value.mail!,
+          phone: this.applyForm.value.phone!,
+          surname: this.applyForm.value.surname!
+      }
+      const consultantId = this.routeId.snapshot.paramMap.get('_id')
+      let response = await this.consultantService.putConsultant(
+        consultantId,
+        consultantData
+      )
+      console.log('Richiesta')
+      response.subscribe((updatedConsultant) => {
+        console.log(updatedConsultant._id)
+        if (!updatedConsultant._id) {
+          throw Error('Id mancante!')
+        }
+
+      }
+      )
+    } catch {
+    }
+    this.applyForm.reset()
+    this.isLoading = false
+    this.router.navigate(['/'])
+  }
 }

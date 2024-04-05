@@ -10,7 +10,7 @@
 </button>
 
 
-<form novalidate [formGroup]="applyForm"
+<form novalidate [formGroup]="applyForm" (submit)="updateData()"
   class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md p-4">
   <h2 class="text-xl font-semibold text-gray-800 mb-2">Aggiorna i dati</h2>
 
@@ -41,7 +41,7 @@
   <div class="flex justify-end">
     <button [disabled]="!applyForm.valid" type="submit"
       class="create-button">
-      Invia
+      Aggiorna
     </button>
   </div>
 </form>

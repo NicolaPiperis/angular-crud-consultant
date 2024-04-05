@@ -30,13 +30,24 @@ export class ConsultantsComponent implements OnInit {
   async getConsultants () {
     try {
       this.isLoading = true
-      console.log('prima')
       await new Promise(resolve => setTimeout(resolve, 3000))
       let response = await this.consultantService.getConsultant()
-      console.log('richiesta')
       response.subscribe((data) => {
         this.consultants = data
-        console.log('dopo', data)
+      })
+    } catch {}
+    this.isLoading = false
+  }
+
+  async delateConsultant(
+    id: string | null | undefined
+    ) {
+    try {
+      this.isLoading = true
+      await new Promise(resolve => setTimeout(resolve, 3000))
+      let response = await this.consultantService.delateConsultant(id)
+      response.subscribe(() => {
+        console.log('Delete successful')
       })
     } catch {}
     this.isLoading = false

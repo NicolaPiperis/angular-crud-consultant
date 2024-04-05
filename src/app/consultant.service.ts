@@ -9,11 +9,11 @@ import { Consultant } from './interface/consultant';
   providedIn: 'root'
 })
 export class ConsultantService {
-  private apiUrl = 'https://crudcrud.com/api/da79c21a09d640789c75f7620efbce45'
+  private apiUrl = 'https://crudcrud.com/api/1c3431ab67f64413bd8948afd1254f1b'
   constructor(private http: HttpClient) { }
 
   createConsultant(
-    consultant: Consultant
+    consultant: Consultant 
   ) {
     return this.http.post<{ _id: string } & Consultant>(`${this.apiUrl}/consultant`, consultant)
   }
@@ -29,9 +29,16 @@ export class ConsultantService {
   }
 
   putConsultant(
+    _id: string | null | undefined,
     consultant: Consultant
   ) {
-    return this.http.put<{ _id: string } & Consultant[]>(`${this.apiUrl}/consultant/${consultant._id}`, consultant)
+    return this.http.put<{ _id: string } & Consultant[]>(`${this.apiUrl}/consultant/${_id}`, consultant)
+  }
+
+  delateConsultant(
+    _id: string | null | undefined
+  ) {
+    return this.http.delete(`${this.apiUrl}/consultant/${_id}`)
   }
 
 }
