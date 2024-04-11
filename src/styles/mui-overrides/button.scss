@@ -1,0 +1,24 @@
+button,
+a {
+  &.mat-mdc-unelevated-button.mat-primary,
+  &.mat-mdc-raised-button:not(:disabled) {
+    @apply text-white font-semibold;
+  }
+
+  &.mat-mdc-outlined-button:not(:disabled).mat-primary {
+    @apply border-orange-400 bg-white;
+  }
+  &.mat-mdc-outlined-button:not(:disabled).mat-accent {
+    @apply border-light-violet bg-white;
+  }
+
+  // set label as flex row for supporting icon alignment
+  &.mdc-button .mdc-button__label {
+    @apply flex flex-row items-center justify-center gap-2;
+  }
+
+  // custom sizes
+  &.mdc-button.sm {
+    @apply h-7;
+  }
+}

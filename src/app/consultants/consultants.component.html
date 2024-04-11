@@ -30,7 +30,12 @@
         <td class="px-4 py-2">{{ consultant.mail }}</td>
         <td class="px-4 py-2">{{ consultant.phone }}</td>
         <td class="px-2 py-2 flex justify-center space-x-4">
-          <button [routerLink]="['/updateConsultant', consultant._id]" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+          <button 
+          data-cy="edit-consultant"
+          [routerLink]="['/updateConsultant', consultant._id]" 
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Edit
+          </button>
           <button (click)="delateConsultant(consultant._id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
         </td>
       </tr>

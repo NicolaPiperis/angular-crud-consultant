@@ -1,0 +1,25 @@
+.accountant-only {
+  input,
+  select,
+  textarea {
+    @apply border-2 border-light-violet;
+  }
+  div.section-container {
+    @apply text-light-violet;
+  }
+  div.section-container:hover {
+    @apply border-light-violet;
+  }
+
+  .ignore-accountant-style {
+    input,
+    select,
+    textarea {
+      @apply border border-gray-200 hover:border-gray-300;
+    }
+  }
+}
+
+input.ng-invalid.ng-touched {
+  @apply border-2 border-red-300;
+}

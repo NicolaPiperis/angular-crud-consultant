@@ -2,21 +2,26 @@ import { Component, inject } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+// ANGULAR MATERIAL
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { ConsultantService } from '../consultant.service';
 
+// COMPONENT-SERVICE-INTERFACE
+import { ConsultantService } from '../consultant.service';
+import { ConsultantFormComponent } from "../consultant-form/consultant-form.component";
 @Component({
-  selector: 'app-create-consultant',
-  standalone: true,
-  imports: [
-    RouterModule,
-    NgIf,
-    ReactiveFormsModule,
-    MatProgressSpinnerModule
-  ],
-  templateUrl: './create-consultant.component.html',
-  styleUrl: './create-consultant.component.css'
+    selector: 'app-create-consultant',
+    standalone: true,
+    templateUrl: './create-consultant.component.html',
+    styleUrl: './create-consultant.component.css',
+    imports: [
+        RouterModule,
+        NgIf,
+        ReactiveFormsModule,
+        MatProgressSpinnerModule,
+        ConsultantFormComponent
+    ]
 })
 export class CreateConsultantComponent {
   isLoading: boolean = false;

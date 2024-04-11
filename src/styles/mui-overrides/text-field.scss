@@ -1,0 +1,41 @@
+.mat-mdc-form-field {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    @apply border rounded bg-white;
+  }
+  .mat-mdc-form-field-focus-overlay {
+    @apply bg-transparent;
+  }
+  // bottom border
+  .mdc-text-field--filled .mdc-line-ripple::before {
+    @apply border-b-0;
+  }
+
+  // disabled override for design system
+  input:disabled {
+    @apply bg-transparent;
+  }
+}
+
+.accountant-only *:not(.ignore-accountant-style) > .mat-mdc-form-field {
+  // filled
+  .mdc-text-field--filled:not(.mdc-text-field--disabled),
+  // outlined
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+    .mdc-notched-outline
+    .mdc-notched-outline__leading,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+    .mdc-notched-outline
+    .mdc-notched-outline__notch,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+    .mdc-notched-outline
+    .mdc-notched-outline__trailing,
+  // outlined-hover
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+    .mdc-notched-outline .mdc-notched-outline__leading,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+    .mdc-notched-outline .mdc-notched-outline__notch,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+    .mdc-notched-outline .mdc-notched-outline__trailing {
+    @apply border-2 border-light-violet;
+  }
+}

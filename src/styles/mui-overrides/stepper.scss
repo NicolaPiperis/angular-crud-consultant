@@ -1,0 +1,48 @@
+.mat-step-icon {
+  @apply flex border border-gray-400 p-4;
+  margin: 1rem !important;
+  background-color: transparent !important;
+
+  &.mat-step-icon-selected {
+    @apply border-green-700 text-green-700;
+  }
+}
+
+.mat-step-label {
+  @apply absolute -bottom-1 left-0 right-0 text-center;
+  font-size: 10px !important;
+}
+
+.mat-horizontal-stepper-header-container {
+  @apply bg-white md:shadow-md p-3 border-0 md:border rounded-md border-gray-200 -mb-16 pb-6 max-w-min mx-auto z-10;
+
+  .mat-stepper-horizontal-line {
+    @apply border-t-green-700;
+  }
+  .mat-step-header {
+    @apply overflow-visible;
+  }
+}
+
+.mat-horizontal-content-container {
+  @apply bg-white md:shadow-md my-4 border-0 md:border rounded-md border-gray-200;
+  padding-top: 3rem !important;
+}
+
+mat-stepper {
+  background-color: transparent !important;
+}
+
+.mat-step-header:hover:not([aria-disabled]),
+.mat-step-header:hover[aria-disabled='false'] {
+  @apply bg-transparent;
+}
+
+.mat-step-header {
+  &:hover,
+  &.cdk-program-focused,
+  &.cdk-mouse-focused,
+  &.cdk-focused {
+    background-color: transparent !important;
+  }
+}

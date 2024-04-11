@@ -1,0 +1,9 @@
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled),
+.mat-mdc-standard-chip.mdc-evolution-chip--with-primary-graphic:not(
+    .mdc-evolution-chip--disabled
+  ) {
+  .mdc-evolution-chip__text-label,
+  .mdc-evolution-chip__checkmark {
+    @apply text-white;
+  }
+}

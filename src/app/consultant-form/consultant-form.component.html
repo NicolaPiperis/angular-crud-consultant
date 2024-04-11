@@ -1,0 +1,40 @@
+<form novalidate  [formGroup]="consultantForm" (submit)="onSave.emit()"
+  class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md p-4">
+  
+  <h2 class="text-lg font-semibold mb-4">Compila il form</h2>
+
+
+  <mat-form-field data-cy="name-form" data-cy="name-form" class="w-full">
+    <mat-label for="name" >Nome</mat-label>
+    <input matInput formControlName="name" type="text" id="name" name="name" class="w-full">
+  </mat-form-field>
+
+
+  <mat-form-field data-cy="surname-form" class="w-full">
+    <mat-label for="surname" >Cognome</mat-label>
+    <input matInput formControlName="surname" type="text" id="surname" name="surname" class="w-full">
+  </mat-form-field>
+
+
+
+  <mat-form-field data-cy="email-form" class="w-full">
+    <mat-label for="mail" >Email</mat-label>
+    <input matInput formControlName="mail" type="email" id="mail" name="mail" autocomplete="email" class="w-full">
+  </mat-form-field>
+
+
+
+  <mat-form-field data-cy="phone-form" class="w-full">
+    <mat-label for="phone" >Telefono</mat-label>
+    <input matInput formControlName="phone" type="tel" id="phone" name="phone" autocomplete="tel" class="w-full">
+  </mat-form-field>
+
+
+  <div class="flex justify-end">
+    <button [disabled]="!consultantForm.valid" type="submit" data-cy="submit-form"
+      class="create-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:bg-blue-600">
+      Invia
+    </button>
+  </div>
+
+</form>

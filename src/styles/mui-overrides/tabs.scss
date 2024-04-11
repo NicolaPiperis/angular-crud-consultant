@@ -1,0 +1,55 @@
+.mat-mdc-tab-group {
+  .mat-mdc-tab-labels {
+    @apply gap-x-2 md:gap-x-4 border-b-4 border-b-orange-600;
+  }
+
+  &:has(.mat-mdc-tab.mdc-tab--active.impersonated) {
+    .mat-mdc-tab-labels {
+      @apply border-b-light-violet;
+    }
+  }
+
+  .mat-mdc-tab {
+    @apply justify-start h-12;
+
+    .mdc-tab-indicator {
+      @apply rounded-t-md
+        border-t-4 border-t-gray-400 border-b-orange-600
+        p-4 cursor-pointer whitespace-nowrap
+        bg-white;
+    }
+
+    .mdc-tab-indicator__content--underline {
+      @apply border-t-0;
+    }
+  }
+
+  .mat-mdc-tab.mdc-tab--active {
+    .mdc-tab-indicator {
+      @apply border-t-orange-600 border-b-white h-14;
+    }
+
+    &.impersonated {
+      .mdc-tab-indicator {
+        @apply border-light-violet;
+      }
+    }
+  }
+
+  // tab label
+  .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label,
+  .mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label,
+  .mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label {
+    @apply mt-1;
+    color: unset;
+  }
+}
+
+// .mat-mdc-tab-body-content {
+.mat-mdc-tab-body-wrapper {
+  @apply shadow bg-white p-6;
+
+  &.impersonated {
+    @apply border-light-violet;
+  }
+}

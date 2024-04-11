@@ -1,0 +1,8 @@
+mat-button-toggle-group {
+  .mat-button-toggle {
+    @apply text-gray-400;
+  }
+  .mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+    @apply bg-orange-400 text-white;
+  }
+}

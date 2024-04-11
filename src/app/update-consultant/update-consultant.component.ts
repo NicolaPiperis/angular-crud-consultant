@@ -2,22 +2,24 @@ import { Component, inject, OnInit} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+// ANGULAR MATERIAL
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { ConsultantService } from '../consultant.service';
-import { Consultant } from '../interface/consultant';
-
+import { ConsultantFormComponent } from "../consultant-form/consultant-form.component";
 @Component({
-  selector: 'app-update-consultant',
-  standalone: true,
-  imports: [
-    RouterModule,
-    NgIf,
-    ReactiveFormsModule,
-    MatProgressSpinnerModule
-  ],
-  templateUrl: './update-consultant.component.html',
-  styleUrl: './update-consultant.component.css'
+    selector: 'app-update-consultant',
+    standalone: true,
+    templateUrl: './update-consultant.component.html',
+    styleUrl: './update-consultant.component.css',
+    imports: [
+        RouterModule,
+        NgIf,
+        ReactiveFormsModule,
+        MatProgressSpinnerModule,
+        ConsultantFormComponent
+    ]
 })
 export class UpdateConsultantComponent implements OnInit {
   isLoading: boolean = false;

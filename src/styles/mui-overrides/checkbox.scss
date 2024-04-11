@@ -1,0 +1,8 @@
+.mat-mdc-checkbox {
+  &.mat-primary
+    .mdc-checkbox__native-control:enabled
+    ~ .mdc-checkbox__background
+    .mdc-checkbox__checkmark {
+    @apply text-white;
+  }
+}
